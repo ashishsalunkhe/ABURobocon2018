@@ -1,0 +1,38 @@
+CC     = "C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -nodeclspec -DMX_COMPAT_32 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"untitled_sfun.obj"\
+	"c1_untitled.obj"\
+	"c2_untitled.obj"\
+	"c3_untitled.obj"\
+	"c4_untitled.obj"\
+	"untitled_sfun_registry.obj"\
+	"lccstub.obj"\
+	"c_mexapi_version.obj"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2017b\extern\include"  -I"C:\Program Files\MATLAB\R2017b\simulink\include"  -I"C:\Program Files\MATLAB\R2017b\simulink\include\sf_runtime"  -I"C:\Program Files\MATLAB\R2017b\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2017b\rtw\c\src"  -I"C:\Users\valakshe\Desktop\Demo\slprj\_sfprj\untitled\_self\sfun\src"  -I"C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\include64" 
+ 
+
+untitled_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o untitled_sfun.mexw64 @untitled_sfun.lmko
+untitled_sfun.obj :	"untitled_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "untitled_sfun.c"
+c1_untitled.obj :	"c1_untitled.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_untitled.c"
+c2_untitled.obj :	"c2_untitled.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_untitled.c"
+c3_untitled.obj :	"c3_untitled.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_untitled.c"
+c4_untitled.obj :	"c4_untitled.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_untitled.c"
+untitled_sfun_registry.obj :	"untitled_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "untitled_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\mex\lccstub.c"
+c_mexapi_version.obj :	"C:\Program Files\MATLAB\R2017b\extern\version\c_mexapi_version.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2017b\extern\version\c_mexapi_version.c"

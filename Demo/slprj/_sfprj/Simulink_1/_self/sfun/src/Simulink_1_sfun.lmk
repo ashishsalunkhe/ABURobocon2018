@@ -1,0 +1,38 @@
+CC     = "E:\MATLAB\R2017b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "E:\MATLAB\R2017b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "E:\MATLAB\R2017b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -nodeclspec -DMX_COMPAT_32 
+LDFLAGS = -s -dll -L"E:\MATLAB\R2017b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"Simulink_1_sfun.obj"\
+	"c1_Simulink_1.obj"\
+	"c2_Simulink_1.obj"\
+	"c3_Simulink_1.obj"\
+	"c4_Simulink_1.obj"\
+	"Simulink_1_sfun_registry.obj"\
+	"lccstub.obj"\
+	"c_mexapi_version.obj"\
+
+INCLUDE_PATH= -I"E:\MATLAB\R2017b\extern\include"  -I"E:\MATLAB\R2017b\simulink\include"  -I"E:\MATLAB\R2017b\simulink\include\sf_runtime"  -I"E:\MATLAB\R2017b\stateflow\c\mex\include"  -I"E:\MATLAB\R2017b\rtw\c\src"  -I"E:\MATLAB\Demo\slprj\_sfprj\Simulink_1\_self\sfun\src"  -I"E:\MATLAB\R2017b\sys\lcc64\lcc64\include64" 
+ 
+
+Simulink_1_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o Simulink_1_sfun.mexw64 @Simulink_1_sfun.lmko
+Simulink_1_sfun.obj :	"Simulink_1_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "Simulink_1_sfun.c"
+c1_Simulink_1.obj :	"c1_Simulink_1.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_Simulink_1.c"
+c2_Simulink_1.obj :	"c2_Simulink_1.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_Simulink_1.c"
+c3_Simulink_1.obj :	"c3_Simulink_1.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_Simulink_1.c"
+c4_Simulink_1.obj :	"c4_Simulink_1.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_Simulink_1.c"
+Simulink_1_sfun_registry.obj :	"Simulink_1_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "Simulink_1_sfun_registry.c"
+lccstub.obj :	"E:\MATLAB\R2017b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "E:\MATLAB\R2017b\sys\lcc64\lcc64\mex\lccstub.c"
+c_mexapi_version.obj :	"E:\MATLAB\R2017b\extern\version\c_mexapi_version.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "E:\MATLAB\R2017b\extern\version\c_mexapi_version.c"
