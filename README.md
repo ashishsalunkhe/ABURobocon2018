@@ -3,7 +3,7 @@
 **Autonomous and Manual Robots:**</br>
  - Worked with a team of 6 programmers. Built 2 robots - autonomous and manual.
  - Worked on real-time object detection, tracking.
- - Hardware devices: Arduino, Sensors, Actuators, Pneumatic Cylinders, and Rasberry Pi. Used OpenCV, MATLAB and Simulink.
+ - Hardware devices: Arduino, Sensors, Actuators, Pneumatic Cylinders, and Rasberry Pi. Used OpenCV, MATLAB and Simulink.</br>
  **Object Detection**
     - Detected Ring Poles in ABU Robocon 2018 using blob analysis. Blob analysis was used as a workflow
 for conversion between color spaces, color thresholding, morphological operations.
